@@ -1,0 +1,18 @@
+{
+  "name": "NutriScan 20",
+  "short_name": "NutriScan 20",
+  "description": "Analiza alimentos envasados y frescos",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3f7f3",
+  "theme_color": "#14583f",
+  "lang": "es-CL",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#14583f"><meta name="description" content="NutriScan 20: entiende mejor los alimentos que eliges.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>NutriScan 20</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero">
+  <div class="brand"><span class="logo">🥑</span><div><p class="eyebrow">ALIMENTACIÓN CONSCIENTE</p><h1>NutriScan <span>20</span></h1></div></div>
+  <p>Escanea, comprende y elige mejor.</p>
+  <div class="scale"><span>0 · Menos favorable</span><span>20 · Más favorable</span></div>
+</header>
+<main>
+  <nav class="tabs" aria-label="Tipo de alimento">
+    <button class="tab active" data-tab="packaged">📦 Envasados</button>
+    <button class="tab" data-tab="fresh">🥕 Frescos</button>
+  </nav>
+  <section id="packaged" class="view">
+    <article class="card">
+      <h2>Escanea un código de barras</h2>
+      <p class="muted">Buscaremos los datos disponibles en Open Food Facts. Verifica siempre que coincidan con el envase.</p>
+      <label for="barcode">Código de barras</label>
+      <div class="inline"><input id="barcode" inputmode="numeric" autocomplete="off" placeholder="Ej. 7801234567890"><button id="search">Buscar</button></div>
+      <div class="inline buttons"><button id="scan" class="secondary">📷 Usar cámara</button><button id="install" class="secondary hidden">Instalar app</button></div>
+      <video id="video" class="hidden" playsinline muted></video><p id="scanmsg" class="muted small"></p>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </article>
+  </section>
+  <section id="fresh" class="view hidden">
+    <article class="card">
+      <h2>Analiza un alimento fresco</h2>
+      <p class="muted">Elige un alimento sin envase. La puntuación es una orientación general; no compara tamaños de porción ni condiciones médicas.</p>
+      <label for="freshfood">Alimento</label>
+      <select id="freshfood">
+        <option value="apple">Manzana</option><option value="banana">Plátano</option><option value="orange">Naranja</option>
+        <option value="pear">Pera</option><option value="strawberry">Frutilla</option><option value="blueberry">Arándanos</option>
+        <option value="carrot">Zanahoria</option><option value="broccoli">Brócoli</option><option value="tomato">Tomate</option>
+        <option value="spinach">Espinaca</option><option value="potato">Papa</option><option value="avocado">Palta</option>
+        <option value="lentils">Lentejas cocidas</option><option value="chickpeas">Garbanzos cocidos</option>
+        <option value="egg">Huevo</option><option value="salmon">Salmón fresco</option><option value="chicken">Pollo sin piel</option>
+        <option value="milk">Leche natural</option><option value="oats">Avena sin azúcar</option><option value="almonds">Almendras sin sal</option>
+      </select>
+      <button id="freshAnalyze" class="full">Analizar alimento fresco</button>
+    </article>
+  </section>
+  <section id="result" class="card hidden" aria-live="polite">
+    <div class="result-head"><div><p class="eyebrow">RESULTADO ORIENTATIVO</p><h2 id="foodname">Alimento</h2><span id="source" class="muted small"></span></div><div id="scoreRing" class="ring"><div><strong id="score">—</strong><small>/20</small></div></div></div>
+    <h3 id="grade"></h3><p id="summary"></p>
+    <div id="nutrients" class="nutrients"></div>
+    <div class="columns"><div><h3>🌱 Aspectos favorables</h3><ul id="good"></ul></div><div><h3>🔎 Qué revisar</h3><ul id="caution"></ul></div></div>
+    <h3>💡 Recomendación</h3><p id="tips"></p>
+    <p class="fine">La puntuación es orientativa, no un diagnóstico ni una clasificación clínica validada. No existe un alimento perfecto ni uno que deba juzgarse solo por un número. Para envasados, los datos incompletos pueden alterar la nota.</p>
+  </section>
+  <section class="card method">
+    <h2>¿Cómo calculamos la nota?</h2>
+    <p>La versión inicial considera azúcares, sal/sodio, grasas saturadas, fibra, proteínas y señales identificables en ingredientes. Los alimentos frescos se evalúan según su perfil habitual y su grado de procesamiento.</p>
+    <p><strong>Importante:</strong> un aditivo no es automáticamente dañino por su nombre, y los frutos secos o el aceite de oliva no son “malos” por ser energéticos. La cantidad y el contexto importan.</p>
+  </section>
+</main>
+<footer>NutriScan 20 · Prototipo inicial · Datos de productos envasados: Open Food Facts</footer>
+<script src="app.js"></script>
+</body></html>
